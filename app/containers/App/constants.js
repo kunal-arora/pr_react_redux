@@ -10,3 +10,7 @@
  */
 
 export const DEFAULT_LOCALE = 'en';
+
+export const LOAD_CATEGORIES = 'ustraa/App/LOAD_CATEGORIES';
+export const LOAD_CATEGORIES_SUCCESS = 'ustraa/App/LOAD_CATEGORIES_SUCCESS';
+export const LOAD_CATEGORIES_ERROR = 'ustraa/App/LOAD_CATEGORIES_SUCCESS';

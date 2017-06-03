@@ -12,8 +12,10 @@
  */
 
 import React from 'react';
+import withProgressBar from 'components/ProgressBar';
+import Header from 'components/Header';
 
-export default class App extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+export class App extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
 
   static propTypes = {
     children: React.PropTypes.node,
@@ -22,8 +24,11 @@ export default class App extends React.PureComponent { // eslint-disable-line re
   render() {
     return (
       <div>
+        <Header/>
         {React.Children.toArray(this.props.children)}
       </div>
     );
   }
 }
+
+export default withProgressBar(App);

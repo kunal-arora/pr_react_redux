@@ -10,15 +10,44 @@
  */
 
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
-import messages from './messages';
+import { connect } from 'react-redux';
+// import { createStructuredSelector } from 'reselect';
+// import { makeSelectLoading } from 'containers/App/selectors';
+// import { FormattedMessage } from 'react-intl';
+// import messages from './messages';
+import H2 from 'components/H2';
+import AllCategories from 'containers/AllCategories';
+import { loadCategory } from './action';
+// import H1 from 'components/H1';
 
-export default class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+export class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
-      <h1>
-        <FormattedMessage {...messages.header} />
-      </h1>
+      <div className="container">
+        <H2>
+          ustraa categories
+          <button onClick={() => this.props.onLoadCategory('******* all category data *********')}>Load cat</button>
+        </H2>
+        <AllCategories />
+
+      </div>
     );
   }
 }
+
+HomePage.propTypes = {
+  onLoadCategory: React.PropTypes.func,
+};
+
+export function mapDispatchToProps(dispatch) {
+  return {
+    onLoadCategory: (data) => dispatch(loadCategory(data)),
+  };
+}
+
+export function mapStateToProps() {
+  return {};
+}
+
+// Wrap the component to inject dispatch and state into it
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
