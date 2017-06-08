@@ -29,15 +29,16 @@ const initialState = fromJS({
 function homeReducer(state = initialState, action) {
   switch (action.type) {
     case LOAD_ALL:
-    // console.log(action.type);
       return state
       .set('loading', true)
       .set('error', false)
       .setIn(['data', 'homeData'], false);
+      console.log(action.type);
     case LOAD_ALL_SUCCESS:
-    // console.log(action.categories);
+    console.log(action.type);
+    // console.log(action.categories.data.children_data);
         return state
-          .setIn(['data', 'homeData'], action.categories.data)
+          .setIn(['data', 'homeData'], action.categories.data.children_data)
           .set('loading', false)
           .set('error', false );
     default:

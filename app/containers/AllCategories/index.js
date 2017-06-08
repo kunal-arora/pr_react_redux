@@ -11,7 +11,12 @@ export class AllCategories extends React.PureComponent {
     render() {
 
       const item = this.props.myData;
-
+        console.log(item);
+          if (item) {
+                    var namesList = item.map(function(item){
+                        return <li key={item.id}>{item.name}</li>;
+                      })
+          }
         // console.log("all cat component");
         // console.log(this.props);
         // if (!this.props.data) {
@@ -19,7 +24,7 @@ export class AllCategories extends React.PureComponent {
         // }
         return (
             <div>
-                <h3>{item.body}</h3>
+                { namesList }
             </div>
         );
     }

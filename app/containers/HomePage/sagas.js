@@ -18,8 +18,8 @@ export function* getRepos() {
   console.log('getrepos');
   // Select username from store
   // const username = yield select(makeSelectUsername());
-  // const requestURL = 'http://localhost/magento_c_e_2.1.5_w_sd/index.php/rest/V1/categories';
-  const requestURL = 'https://jsonplaceholder.typicode.com/posts/1';
+  const requestURL = 'http://localhost/magento_c_e_2.1.5_w_sd/index.php/rest/V1/categories';
+  // const requestURL = 'https://jsonplaceholder.typicode.com/posts/1';
 
   var config = {
     headers: {
@@ -29,7 +29,7 @@ export function* getRepos() {
   };
   try {
     // Call our request helper (see 'utils/request')
-    const repos = yield call(axios.get, requestURL);
+    const repos = yield call(axios.get, requestURL, config);
     yield put(categoriesLoaded(repos));
   } catch (err) {
     yield put(categoriesError(err));
@@ -45,7 +45,7 @@ export function* githubData() {
   // Watches for LOAD_ALL actions and calls getRepos when one comes in.
   // By using `takeLatest` only the result of the latest API call is applied.
   // It returns task descriptor (just like fork) so we can continue execution
-  const watcher = yield takeEvery(LOAD_ALL, getRepos);
+  const watcher = yield takeLatest(LOAD_ALL, getRepos);
 
   // Suspend execution until location changes
   yield take(LOCATION_CHANGE);
