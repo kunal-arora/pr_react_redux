@@ -6,6 +6,11 @@ const makeSelect = () => createSelector(
   (homeState) => homeState.getIn(['data', 'homeData'])
 );
 
+// const getCats = () => createSelector(
+//   selectHome,
+//   (getState) => getState.getIn(['data', 'categories'])
+// );
+
 
 export {
   selectHome,

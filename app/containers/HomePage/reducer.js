@@ -14,6 +14,7 @@ import { fromJS } from 'immutable';
 
 import {
   LOAD_ALL,
+  LOAD_ALL_SUCCESS,
 } from './constants';
 
 // The initial state of the App
@@ -28,11 +29,17 @@ const initialState = fromJS({
 function homeReducer(state = initialState, action) {
   switch (action.type) {
     case LOAD_ALL:
-    // console.log(action.payload);
+    // console.log(action.type);
       return state
-        .setIn(['data', 'homeData'], action.payload)
-        .set('loading', false)
-        .set('error', false);
+      .set('loading', true)
+      .set('error', false)
+      .setIn(['data', 'homeData'], false);
+    case LOAD_ALL_SUCCESS:
+    // console.log(action.categories);
+        return state
+          .setIn(['data', 'homeData'], action.categories.data)
+          .set('loading', false)
+          .set('error', false );
     default:
       return state;
   }

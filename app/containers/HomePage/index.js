@@ -26,7 +26,7 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
       <div className="container">
         <H2>
           ustraa categories
-          <button onClick={() => this.props.onLoadCategory('******* all category data *********')}>Load cat</button>
+          <button onClick={() => this.props.onLoadCategory()}>Load cat</button>
         </H2>
         <AllCategories />
 
@@ -41,7 +41,7 @@ HomePage.propTypes = {
 
 export function mapDispatchToProps(dispatch) {
   return {
-    onLoadCategory: (data) => dispatch(loadCategory(data)),
+    onLoadCategory: () => dispatch(loadCategory()),
   };
 }
 

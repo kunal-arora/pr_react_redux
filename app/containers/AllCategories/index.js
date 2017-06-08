@@ -10,14 +10,16 @@ import { makeSelect } from 'containers/HomePage/selectors';
 export class AllCategories extends React.PureComponent {
     render() {
 
-        console.log("all cat component");
+      const item = this.props.myData;
+
+        // console.log("all cat component");
         // console.log(this.props);
         // if (!this.props.data) {
         //     return (<div>not clicked</div>);
         // }
         return (
             <div>
-                <h3>{this.props.myData}</h3>
+                <h3>{item.body}</h3>
             </div>
         );
     }
@@ -26,8 +28,8 @@ export class AllCategories extends React.PureComponent {
 
 AllCategories.propTypes = {
   myData: React.PropTypes.oneOfType([
-    React.PropTypes.string,
-    React.PropTypes.bool,
+    React.PropTypes.object,
+    React.PropTypes.any,
   ]),
 };
 const mapStateToProps = createStructuredSelector({
