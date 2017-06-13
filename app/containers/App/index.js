@@ -24,7 +24,7 @@ export class App extends React.PureComponent { // eslint-disable-line react/pref
   render() {
     return (
       <div>
-        <Header/>
+        <Header />
         {React.Children.toArray(this.props.children)}
       </div>
     );

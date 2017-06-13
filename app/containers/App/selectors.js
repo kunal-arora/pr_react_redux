@@ -25,6 +25,5 @@ const makeSelectLocationState = () => {
 
 export {
   selectGlobal,
-  makeSelect,
   makeSelectLocationState,
 };

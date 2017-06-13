@@ -22,8 +22,6 @@ function* getAllCategories() {
   yield takeLatest("LOAD_CATEGORIES", fetchAllCategories);
 }
 
-
-
 export default [
   getAllCategories,
 ];
