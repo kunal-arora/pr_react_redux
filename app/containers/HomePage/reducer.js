@@ -26,9 +26,7 @@ import {
 const initialState = fromJS({
   loading: false,
   error: false,
-  data: {
-    homeData: false,
-  },
+  data: [],
 });
 
 function homeReducer(state = initialState, action) {
@@ -36,14 +34,14 @@ function homeReducer(state = initialState, action) {
     // get all categories action
     case LOAD_ALL:
       return state
+        .set('data', fromJS([]))
         .set('loading', true)
-        .set('error', false)
-        .set(['data', 'homeData'], false);
+        .set('error', false);
       // get all categories success action
     case LOAD_ALL_SUCCESS:
     // console.log(action.categories.data.children_data);
       return state
-        .setIn(['data', 'homeData'], action.categories.data.children_data)
+        .set('data', fromJS(action.categories.data.children_data))
         .set('loading', false)
         .set('error', false);
 

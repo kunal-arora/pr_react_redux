@@ -12,7 +12,7 @@ const selectHome = (state) => state.get('home');
 
 const makeSelect = () => createSelector(
   selectHome,
-  (home) => home.getIn(['data', 'homeData'])
+  (home) => home.get('data').toJS()
 );
 
 
