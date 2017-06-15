@@ -10,7 +10,6 @@ import {
  * @return {object}    An action object with a type of CHANGE_USERNAME
  */
 export function loadCategoryProduct(id) {
-  console.log(id);
   console.log("load all products");
   return {
     type: LOAD_CATEGORY_PRODUCT,

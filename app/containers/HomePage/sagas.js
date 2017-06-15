@@ -3,32 +3,29 @@
  */
 
 import { take, call, put, select, cancel, takeLatest , takeEvery, all  } from 'redux-saga/effects';
-// import request from 'utils/request';
+import { cancelByLocationChange } from 'containers/App/sagas';
 import axios from 'axios';
-import { LOCATION_CHANGE } from 'react-router-redux';
+// homepage constants
 import { LOAD_ALL } from './constants';
+// all categories constants
+import { LOAD_CATEGORY_PRODUCT } from '../AllCategories/constants';
+// homepage actions
 import { categoriesLoaded, categoriesError } from './action';
-// import { makeSelectUsername } from 'containers/HomePage/selectors';
+// all categories actions
+import { categoryProductLoaded, categoryProductError } from '../AllCategories/action';
 
-/**
- * Github repos request/response handler
- */
+// all categories sagas funtion
 export function* getCats() {
-
   console.log('getcats');
-  // Select username from store
-  // const username = yield select(makeSelectUsername());
-  const requestURL = 'http://localhost/magento_c_e_2.1.5_w_sd/index.php/rest/V1/categories';
-  // const requestURL = 'https://jsonplaceholder.typicode.com/posts/1';
+  const requestURL = `http://localhost/magento_c_e_2.1.5_w_sd/index.php/rest/V1/categories`;
 
-  var config = {
+  const config = {
     headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer nib1hg57bcqneunm4v4lu01y265e9t1m',
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer nib1hg57bcqneunm4v4lu01y265e9t1m',
     },
   };
   try {
-    // Call our request helper (see 'utils/request')
     const repos = yield call(axios.get, requestURL, config);
     yield put(categoriesLoaded(repos));
   } catch (err) {
@@ -36,23 +33,34 @@ export function* getCats() {
   }
 }
 
-/**
- * Root saga manages watcher lifecycle
- */
-export function* categoriesData() {
 
-  console.log('get');
-  // Watches for LOAD_ALL actions and calls getRepos when one comes in.
-  // By using `takeLatest` only the result of the latest API call is applied.
-  // It returns task descriptor (just like fork) so we can continue execution
-  const watcher = yield takeLatest(LOAD_ALL, getCats);
+// categories products sagas funtion
+export function* getCatProducts(action) {
+  console.log('getcat products');
+  console.log(action.payload);
 
-  // Suspend execution until location changes
-  yield take(LOCATION_CHANGE);
-  yield cancel(watcher);
+  let requestURL = '';
+
+  if (action.payload) {
+    requestURL = `http://localhost/magento_c_e_2.1.5_w_sd/index.php/rest/V1/categories/${action.payload}/products`;
+  }
+
+  const config = {
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer nib1hg57bcqneunm4v4lu01y265e9t1m',
+    },
+  };
+  try {
+    const products = yield call(axios.get, requestURL, config);
+    yield put(categoryProductLoaded(products));
+  } catch (err) {
+    yield put(categoriesError(err));
+  }
 }
 
-// Bootstrap sagas
+// load all sagas
 export default [
-  categoriesData,
+  cancelByLocationChange(LOAD_ALL, getCats),
+  cancelByLocationChange(LOAD_CATEGORY_PRODUCT, getCatProducts),
 ];

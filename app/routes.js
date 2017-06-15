@@ -16,11 +16,16 @@ export default function createRoutes(store) {
   // Create reusable async injectors using getAsyncInjectors factory
   const { injectReducer, injectSagas } = getAsyncInjectors(store); // eslint-disable-line no-unused-vars
 
+  let previousPath = null;
   return [
     {
       path: '/',
       name: 'home',
       getComponent(nextState, cb) {
+        if (nextState.location.pathname === previousPath) {
+          return;
+        }
+
         const importModules = Promise.all([
           import('containers/HomePage/reducer'),
           import('containers/HomePage/sagas'),
@@ -36,6 +41,7 @@ export default function createRoutes(store) {
         });
 
         importModules.catch(errorLoading);
+        previousPath = nextState.location.pathname;
       },
     }, {
       path: '*',
