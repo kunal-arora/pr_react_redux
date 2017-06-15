@@ -11,45 +11,40 @@ import { loadCategoryProduct } from './action';
  * */
 
 export class AllCategories extends React.PureComponent {
-    render() {
+  render() {
+    const item = this.props.myData;
+      // console.log(item);
+    let namesList = false;
+    if (item) {
+      namesList = item.map(function (it, index) {
+        return (
+          <CategoryList
+            key={index}
+            onClick={() => this.props.onLoadCategoryProduct(it.id)}
+          >
 
+            {it.name} - {it.id}
 
-      const item = this.props.myData;
-        // console.log(item);
-        var namesList = false;
-          if (item) {
-            namesList = item.map(function (it, index) {
-              return (
-                <CategoryList
-                  key={index}
-                  onClick={() => this.props.onLoadCategoryProduct(it.id)}
-                >
-
-                  {it.name} - {it.id}
-
-                </CategoryList>
-              );
-            }, this);
-          }
-        // console.log("all cat component");
-        // console.log(this.props);
-        // if (!this.props.data) {
-        //     return (<div>not clicked</div>);
-        // }
-        if (namesList != false){
-          return (
-            <div>
-              <FlexBox>{ namesList }</FlexBox>
-            </div>
-          );
-        } else {
-          return (
-            <div>
-              <FlexBox>Loading...</FlexBox>
-            </div>
-          );
-        }
+          </CategoryList>
+        );
+      }, this);
     }
+
+
+    if (namesList !== false) {
+      return (
+        <div>
+          <FlexBox>{ namesList }</FlexBox>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <FlexBox>Loading...</FlexBox>
+        </div>
+      );
+    }
+  }
 }
 
 

@@ -1,15 +1,19 @@
 import { createSelector } from 'reselect';
 
+/**
+ * Direct selector to the HomePage state domain
+ */
+
 const selectHome = (state) => state.get('home');
+
+/**
+ * Default selector used by HomePage
+ */
+
 const makeSelect = () => createSelector(
   selectHome,
-  (homeState) => homeState.getIn(['data', 'homeData'])
+  (home) => home.getIn(['data', 'homeData'])
 );
-
-// const getCats = () => createSelector(
-//   selectHome,
-//   (getState) => getState.getIn(['data', 'categories'])
-// );
 
 
 export {

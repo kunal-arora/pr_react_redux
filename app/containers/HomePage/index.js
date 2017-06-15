@@ -24,7 +24,7 @@ import { loadCategory } from './action';
 
 export class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   componentDidMount() {
-    // this.props.onLoadCategory();
+    this.props.onLoadCategory();
   }
   render() {
     // console.log(this.props);
@@ -37,7 +37,7 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
       <div className="container">
         <H2>
           ustraa categories
-          <button onClick={() => this.props.onLoadCategory()}>Load cat</button>
+          {/* <button onClick={() => this.props.onLoadCategory()}>Load cat</button> */}
         </H2>
         <AllCategories {...AllCategoriesProps} />
 

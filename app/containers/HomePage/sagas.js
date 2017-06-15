@@ -13,9 +13,9 @@ import { categoriesLoaded, categoriesError } from './action';
 /**
  * Github repos request/response handler
  */
-export function* getRepos() {
+export function* getCats() {
 
-  console.log('getrepos');
+  console.log('getcats');
   // Select username from store
   // const username = yield select(makeSelectUsername());
   const requestURL = 'http://localhost/magento_c_e_2.1.5_w_sd/index.php/rest/V1/categories';
@@ -39,13 +39,13 @@ export function* getRepos() {
 /**
  * Root saga manages watcher lifecycle
  */
-export function* githubData() {
+export function* categoriesData() {
 
   console.log('get');
   // Watches for LOAD_ALL actions and calls getRepos when one comes in.
   // By using `takeLatest` only the result of the latest API call is applied.
   // It returns task descriptor (just like fork) so we can continue execution
-  const watcher = yield takeLatest(LOAD_ALL, getRepos);
+  const watcher = yield takeLatest(LOAD_ALL, getCats);
 
   // Suspend execution until location changes
   yield take(LOCATION_CHANGE);
@@ -54,5 +54,5 @@ export function* githubData() {
 
 // Bootstrap sagas
 export default [
-  githubData,
+  categoriesData,
 ];
