@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
-import { makeSelect } from 'containers/HomePage/selectors';
+// import { createStructuredSelector } from 'reselect';
+// import { makeSelect } from 'containers/HomePage/selectors';
 import CategoryList from 'components/CategoryList';
 import FlexBox from 'components/FlexBox';
 import { loadCategoryProduct } from './action';
@@ -12,10 +12,9 @@ import { loadCategoryProduct } from './action';
 
 export class AllCategories extends React.PureComponent {
   render() {
-    const item = this.props.myData;
-      // console.log(item);
+    const item = this.props.categories;
     let namesList = false;
-    if (item) {
+    if (item.length !== 0) {
       namesList = item.map(function (it, index) {
         return (
           <CategoryList
@@ -50,7 +49,7 @@ export class AllCategories extends React.PureComponent {
 
 AllCategories.propTypes = {
   onLoadCategoryProduct: React.PropTypes.func,
-  myData: React.PropTypes.oneOfType([
+  categories: React.PropTypes.oneOfType([
     React.PropTypes.object,
     React.PropTypes.any,
   ]),

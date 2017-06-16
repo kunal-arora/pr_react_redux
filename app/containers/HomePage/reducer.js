@@ -26,25 +26,39 @@ import {
 const initialState = fromJS({
   loading: false,
   error: false,
-  data: [],
+  categories: [],
+  catProducts: [],
 });
 
 function homeReducer(state = initialState, action) {
   switch (action.type) {
-    // get all categories action
+    // get all categories
     case LOAD_ALL:
       return state
-        .set('data', fromJS([]))
+        .set('categories', fromJS([]))
         .set('loading', true)
         .set('error', false);
-      // get all categories success action
+      // get all categories success
     case LOAD_ALL_SUCCESS:
-    // console.log(action.categories.data.children_data);
+    // console.log(action.categories.data);
       return state
-        .set('data', fromJS(action.categories.data.children_data))
+        .set('categories', fromJS(action.categories.data.children_data))
         .set('loading', false)
         .set('error', false);
+    // all products load reducer
 
+    case LOAD_CATEGORY_PRODUCT:
+      return state
+        .set('loading', true)
+        .set('error', false);
+
+    // all products success reducer
+    case LOAD_CATEGORY_PRODUCT_SUCCESS:
+      // console.log(action.products.data);
+      return state
+        .set('catProducts', fromJS(action.products.data))
+        .set('loading', false)
+        .set('error', false);
     // default return
     default:
       return state;

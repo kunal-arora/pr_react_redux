@@ -16,9 +16,10 @@ import { connect } from 'react-redux';
 // import { FormattedMessage } from 'react-intl';
 // import messages from './messages';
 import { createStructuredSelector } from 'reselect';
-import { makeSelect } from 'containers/HomePage/selectors';
+import { makeSelect, catProductsSelect } from 'containers/HomePage/selectors';
 import H2 from 'components/H2';
 import AllCategories from 'containers/AllCategories';
+import CategoryProducts from 'containers/CategoryProducts';
 import { loadCategory } from './action';
 // import H1 from 'components/H1';
 
@@ -28,9 +29,14 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
   }
   render() {
     // console.log(this.props);
-    const { myData } = this.props;
+    const { categories, catProducts } = this.props;
+
     const AllCategoriesProps = {
-      myData,
+      categories,
+    };
+
+    const CategoryProductsProps = {
+      catProducts,
     };
 
     return (
@@ -40,14 +46,18 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
           {/* <button onClick={() => this.props.onLoadCategory()}>Load cat</button> */}
         </H2>
         <AllCategories {...AllCategoriesProps} />
-
+        <CategoryProducts {...CategoryProductsProps} />
       </div>
     );
   }
 }
 
 HomePage.propTypes = {
-  myData: React.PropTypes.oneOfType([
+  categories: React.PropTypes.oneOfType([
+    React.PropTypes.object,
+    React.PropTypes.any,
+  ]),
+  catProducts: React.PropTypes.oneOfType([
     React.PropTypes.object,
     React.PropTypes.any,
   ]),
@@ -61,7 +71,8 @@ export function mapDispatchToProps(dispatch) {
 }
 
 const mapStateToProps = createStructuredSelector({
-  myData: makeSelect(),
+  categories: makeSelect(),
+  catProducts: catProductsSelect(),
 });
 // Wrap the component to inject dispatch and state into it
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

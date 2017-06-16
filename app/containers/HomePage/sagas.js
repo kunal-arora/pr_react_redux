@@ -37,7 +37,7 @@ export function* getCats() {
 // categories products sagas funtion
 export function* getCatProducts(action) {
   console.log('getcat products');
-  console.log(action.payload);
+  // console.log(action.payload);
 
   let requestURL = '';
 

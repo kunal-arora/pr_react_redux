@@ -12,11 +12,16 @@ const selectHome = (state) => state.get('home');
 
 const makeSelect = () => createSelector(
   selectHome,
-  (home) => home.get('data').toJS()
+  (home) => home.get('categories').toJS()
 );
 
+const catProductsSelect = () => createSelector(
+  selectHome,
+  (home) => home.get('catProducts').toJS()
+);
 
 export {
   selectHome,
   makeSelect,
+  catProductsSelect,
 };
