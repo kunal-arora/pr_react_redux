@@ -8,11 +8,11 @@ import axios from 'axios';
 // homepage constants
 import { LOAD_ALL } from './constants';
 // all categories constants
-import { LOAD_CATEGORY_PRODUCT } from '../AllCategories/constants';
+import { LOAD_CATEGORY_PRODUCT, LOAD_FIRST_CATEGORY_PRODUCT_SUCCESS } from '../AllCategories/constants';
 // homepage actions
 import { categoriesLoaded, categoriesError } from './action';
 // all categories actions
-import { categoryProductLoaded, categoryProductError } from '../AllCategories/action';
+import { categoryProductLoaded, categoryProductError, categoryProductFirstLoad } from '../AllCategories/action';
 
 // all categories sagas funtion
 export function* getCats() {
@@ -27,6 +27,9 @@ export function* getCats() {
   };
   try {
     const repos = yield call(axios.get, requestURL, config);
+    // passing the first category id to the action
+    yield put(categoryProductFirstLoad(repos.data.children_data[0].id));
+    // passing all the categories to the action
     yield put(categoriesLoaded(repos));
   } catch (err) {
     yield put(categoriesError(err));
@@ -63,4 +66,5 @@ export function* getCatProducts(action) {
 export default [
   cancelByLocationChange(LOAD_ALL, getCats),
   cancelByLocationChange(LOAD_CATEGORY_PRODUCT, getCatProducts),
+  cancelByLocationChange(LOAD_FIRST_CATEGORY_PRODUCT_SUCCESS, getCatProducts),
 ];

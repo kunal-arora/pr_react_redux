@@ -1,6 +1,7 @@
 import {
   LOAD_CATEGORY_PRODUCT,
   LOAD_CATEGORY_PRODUCT_SUCCESS,
+  LOAD_FIRST_CATEGORY_PRODUCT_SUCCESS,
   LOAD_CATEGORY_PRODUCT_ERROR,
 } from './constants';
 
@@ -31,6 +32,23 @@ export function categoryProductLoaded(products) {
     products,
   };
 }
+
+
+/**
+ * Dispatched when the repositories are loaded by the request saga
+ *
+ * @param  {array} categories The repository data
+ *
+ * @return {object}      An action object with a type of LOAD_REPOS_SUCCESS passing the repos
+ */
+export function categoryProductFirstLoad(categoryId) {
+  // console.log(products);
+  return {
+    type: LOAD_FIRST_CATEGORY_PRODUCT_SUCCESS,
+    payload: categoryId,
+  };
+}
+
 
 /**
  * Dispatched when loading the repositories fails
