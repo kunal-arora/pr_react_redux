@@ -14,6 +14,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { applyRouterMiddleware, Router, browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 import { useScroll } from 'react-router-scroll';
 import 'sanitize.css/sanitize.css';
 
@@ -43,6 +44,8 @@ import './styles/global-styles';
 
 // Import root routes
 import createRoutes from './routes';
+
+injectTapEventPlugin();
 
 // Create redux store with history
 // this uses the singleton browserHistory provided by react-router

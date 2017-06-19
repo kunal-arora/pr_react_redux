@@ -16,17 +16,23 @@ import { connect } from 'react-redux';
 // import { FormattedMessage } from 'react-intl';
 // import messages from './messages';
 import { createStructuredSelector } from 'reselect';
+import {Tabs, Tab} from 'material-ui/Tabs';
 import { makeSelect, catProductsSelect } from 'containers/HomePage/selectors';
+import CategoryList from 'components/CategoryList';
+import FlexBox from 'components/FlexBox';
 import H2 from 'components/H2';
 import AllCategories from 'containers/AllCategories';
 import CategoryProducts from 'containers/CategoryProducts';
 import { loadCategory } from './action';
+import { loadCategoryProduct } from '../AllCategories/action';
 // import H1 from 'components/H1';
 
 export class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   componentDidMount() {
     this.props.onLoadCategory();
   }
+
+
   render() {
     // console.log(this.props);
     const { categories, catProducts } = this.props;
@@ -39,16 +45,37 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
       catProducts,
     };
 
-    return (
-      <div className="container">
-        <H2>
-          ustraa categories
-          {/* <button onClick={() => this.props.onLoadCategory()}>Load cat</button> */}
-        </H2>
-        <AllCategories {...AllCategoriesProps} />
-        <CategoryProducts {...CategoryProductsProps} />
-      </div>
-    );
+    // const item = this.props.catProducts;
+    // console.log(item);
+    let productList = false;
+
+    if (this.props.categories) {
+      productList = this.props.categories.map(function (it, index) {
+        return (
+          <Tab
+            key={index}
+            label={it.name}
+            onActive={() => this.props.onLoadCategoryProduct(it.id)}
+          >
+            <CategoryProducts {...CategoryProductsProps} />
+          </Tab>
+        );
+      }, this);
+    }
+
+    if (productList != false) {
+      return (
+        <Tabs>
+          {productList}
+        </Tabs>
+      );
+    } else {
+      return (
+        <FlexBox>
+          select a category with products in it.
+        </FlexBox>
+      );
+    }
   }
 }
 
@@ -62,11 +89,13 @@ HomePage.propTypes = {
     React.PropTypes.any,
   ]),
   onLoadCategory: React.PropTypes.func,
+  onLoadCategoryProduct: React.PropTypes.func,
 };
 
 export function mapDispatchToProps(dispatch) {
   return {
     onLoadCategory: () => dispatch(loadCategory()),
+    onLoadCategoryProduct: (id) => dispatch(loadCategoryProduct(id)),
   };
 }
 

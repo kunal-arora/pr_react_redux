@@ -12,28 +12,28 @@ export class CategoryProducts extends React.PureComponent {
     if (item) {
       productList = item.map(function (it, index) {
         return (
-          <CategoryList
+          <button
             key={index}
           >
 
             {it.sku}
 
-          </CategoryList>
+          </button>
         );
       }, this);
     }
 
     if (productList != false) {
       return (
-        <FlexBox>
+        <div>
           { productList }
-        </FlexBox>
+        </div>
       );
     } else {
       return (
-        <FlexBox>
+        <div>
           select a category with products in it.
-        </FlexBox>
+        </div>
       );
     }
   }
