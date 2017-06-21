@@ -42,7 +42,7 @@ export function loadCategory() {
  * @return {object}      An action object with a type of LOAD_REPOS_SUCCESS passing the repos
  */
 export function categoriesLoaded(categories) {
-  // console.log(categories);
+  console.log(categories);
   return {
     type: LOAD_ALL_SUCCESS,
     categories,

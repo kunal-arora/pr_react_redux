@@ -32,6 +32,10 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
     this.props.onLoadCategory();
   }
 
+  handleCLick = () => {
+    console.log('handleCLick');
+  }
+
 
   render() {
     // console.log(this.props);
@@ -56,6 +60,7 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
             key={index}
             label={it.name}
             onActive={() => this.props.onLoadCategoryProduct(it.id)}
+            onClick={this.handleCLick}
           >
             <CategoryProducts {...CategoryProductsProps} />
           </Tab>
