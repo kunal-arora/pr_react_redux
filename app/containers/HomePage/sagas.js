@@ -28,7 +28,7 @@ export function* getCats() {
   try {
     const repos = yield call(axios.get, requestURL, config);
     // passing the first category id to the action
-    //yield put(categoryProductFirstLoad(repos.data.children_data[0].id));
+    yield put(categoryProductFirstLoad(repos.data.children_data[0].id));
     // passing all the categories to the action
     yield put(categoriesLoaded(repos));
   } catch (err) {
