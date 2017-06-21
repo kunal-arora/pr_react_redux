@@ -1,0 +1,150 @@
+warning: LF will be replaced by CRLF in .editorconfig.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in .gitattributes.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in .github/ISSUE_TEMPLATE.md.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in .github/MAINTAINERS.md.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in .github/PULL_REQUEST_TEMPLATE.md.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in .gitignore.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in .travis.yml.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in CODE_OF_CONDUCT.md.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in CONTRIBUTING.md.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Changelog.md.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in LICENSE.md.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in README.md.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in app/.htaccess.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in app/.nginx.conf.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in app/manifest.json.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in app/translations/en.json.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in appveyor.yml.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in docs/README.md.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in docs/css/README.md.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in docs/css/remove.md.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in docs/css/sanitize.md.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in docs/general/README.md.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in docs/general/commands.md.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in docs/general/components.md.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in docs/general/deployment.md.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in docs/general/faq.md.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in docs/general/files.md.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in docs/general/gotchas.md.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in docs/general/introduction.md.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in docs/general/progressbar.md.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in docs/general/remove.md.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in docs/general/server-configs.md.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in docs/general/server-side-rendering.md.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in docs/js/README.md.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in docs/js/i18n.md.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in docs/js/immutablejs.md.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in docs/js/redux-saga.md.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in docs/js/redux.md.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in docs/js/remove.md.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in docs/js/reselect.md.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in docs/js/routing.md.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in docs/testing/README.md.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in docs/testing/component-testing.md.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in docs/testing/remote-testing.md.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in docs/testing/unit-testing.md.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in internals/generators/component/class.js.hbs.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in internals/generators/component/messages.js.hbs.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in internals/generators/component/stateless.js.hbs.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in internals/generators/component/test.js.hbs.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in internals/generators/container/actions.js.hbs.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in internals/generators/container/actions.test.js.hbs.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in internals/generators/container/class.js.hbs.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in internals/generators/container/constants.js.hbs.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in internals/generators/container/index.js.hbs.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in internals/generators/container/messages.js.hbs.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in internals/generators/container/reducer.js.hbs.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in internals/generators/container/reducer.test.js.hbs.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in internals/generators/container/sagas.js.hbs.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in internals/generators/container/sagas.test.js.hbs.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in internals/generators/container/selectors.js.hbs.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in internals/generators/container/selectors.test.js.hbs.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in internals/generators/container/stateless.js.hbs.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in internals/generators/container/test.js.hbs.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in internals/generators/language/add-locale-data.hbs.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in internals/generators/language/app-locale.hbs.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in internals/generators/language/format-translation-messages.hbs.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in internals/generators/language/intl-locale-data.hbs.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in internals/generators/language/polyfill-intl-locale.hbs.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in internals/generators/language/translation-messages.hbs.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in internals/generators/language/translations-json.hbs.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in internals/generators/route/route.hbs.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in internals/generators/route/routeWithReducer.hbs.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in package.json.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in yarn.lock.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in shelljs_9f3b1cb2fed37e7f9508.
+The file will have its original line endings in your working directory.
