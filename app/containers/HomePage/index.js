@@ -16,7 +16,7 @@ import { connect } from 'react-redux';
 // import { FormattedMessage } from 'react-intl';
 // import messages from './messages';
 import { createStructuredSelector } from 'reselect';
-// import {Tabs, Tab} from 'material-ui/Tabs';
+import {Tabs, Tab} from 'material-ui/Tabs';
 import { makeSelect, catProductsSelect } from 'containers/HomePage/selectors';
 import CategoryList from 'components/CategoryList';
 import FlexBox from 'components/FlexBox';
@@ -56,16 +56,13 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
     if (this.props.categories) {
       productList = this.props.categories.map(function (it, index) {
         return (
-          <div>
-          <button
-            key={it.id}
+          <Tab
+            key={it.name}
             label={it.name}
-            onClick={() => this.props.onLoadCategoryProduct(it.id)}
+            onActive={() => this.props.onLoadCategoryProduct(it.id)}
           >
-          {it.name}
-
-          </button>
-        </div>
+          <CategoryProducts {...CategoryProductsProps} />
+        </Tab>
         );
       }, this);
     }
@@ -73,12 +70,9 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
     if (productList !== false) {
       return (
         <div>
-        <FlexBox>
-          {productList}
-        </FlexBox>
-        <FlexBox>
-          <CategoryProducts {...CategoryProductsProps} />
-        </FlexBox>
+          <Tabs>
+            {productList}
+          </Tabs>
         </div>
       );
     } else {

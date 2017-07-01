@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import CategoryList from 'components/CategoryList';
 import FlexBox from 'components/FlexBox';
@@ -12,13 +13,15 @@ export class CategoryProducts extends React.PureComponent {
     if (item) {
       productList = item.map(function (it, index) {
         return (
-          <button
-            key={index}
-          >
+          <FlexBox key={it.sku}>
+            <Link
+              to={'/product/' + it.sku}
+            >
 
-            {it.sku}
+              {it.sku}
 
-          </button>
+            </Link>
+          </FlexBox>
         );
       }, this);
     }

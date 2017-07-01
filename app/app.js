@@ -31,7 +31,7 @@ import 'sanitize.css/sanitize.css';
 // this file is imported before any styled component.
 import 'global-styles';
 
-// import injectTapEventPlugin from 'react-tap-event-plugin';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 // Import all the third party stuff
 import './setup/openSansObserver';
 import syncHistoryWithStore from './setup/syncHistoryWithStore';
@@ -47,7 +47,7 @@ import { translationMessages as messages } from './i18n';
 const initialState = window.APP_STATE || {};
 
 
-// injectTapEventPlugin();
+injectTapEventPlugin();
 
 // Create redux store with history
 // this uses the singleton browserHistory provided by react-router

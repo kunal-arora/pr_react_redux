@@ -6,6 +6,10 @@ const selectGlobal = (state) => state.get('global');
 //   selectGlobal,
 //   (globalState) => globalState.getIn(['data', 'homeData'])
 // );
+const makeSelectLoading = () => createSelector(
+  selectGlobal,
+  (globalState) => globalState.get('loading')
+);
 
 const makeSelectLocationState = () => {
   let prevRoutingState;
@@ -25,5 +29,6 @@ const makeSelectLocationState = () => {
 
 export {
   selectGlobal,
+  makeSelectLoading,
   makeSelectLocationState,
 };

@@ -16,7 +16,7 @@ const loadModule = (cb) => (componentModule) => {
 function createChildRoutes(store) {
   // create reusable async injectors using getAsyncInjectors factory
   const { injectReducer, injectSagas } = getAsyncInjectors(store); // eslint-disable-line no-unused-vars
-  let previousPath = null;
+  let previousPath = false;
   return [
     {
       path: '/',
@@ -36,6 +36,31 @@ function createChildRoutes(store) {
 
         importModules.then(([reducer, sagas, component]) => {
           injectReducer('home', reducer.default);
+          injectSagas(sagas.default);
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+        previousPath = nextState.location.pathname;
+      },
+    }, {
+      path: '/product/:sku',
+      name: 'productdetail',
+      getComponent(nextState, cb) {
+        if (nextState.location.pathname === previousPath) {
+          return;
+        }
+
+        const importModules = Promise.all([
+          import('containers/ProductDetailPage/reducer'),
+          import('containers/ProductDetailPage/sagas'),
+          import('containers/ProductDetailPage'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([reducer, sagas, component]) => {
+          injectReducer('productdetail', reducer.default);
           injectSagas(sagas.default);
           renderRoute(component);
         });

@@ -12,7 +12,7 @@
  */
 
 import React from 'react';
-// import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import withProgressBar from 'components/ProgressBar';
 import Header from 'components/Header';
 
@@ -24,10 +24,12 @@ export class App extends React.PureComponent { // eslint-disable-line react/pref
 
   render() {
     return (
-      <div>
-        <Header />
-        {React.Children.toArray(this.props.children)}
-      </div>
+      <MuiThemeProvider>
+        <div>
+          <Header />
+          {React.Children.toArray(this.props.children)}
+        </div>
+      </MuiThemeProvider>
     );
   }
 }
